@@ -1,6 +1,7 @@
 import React from "react";
 import "./productList.css";
-import Product from '../product/Product'
+import Product from "../product/Product";
+import { products } from "../../data";
 
 function ProductList() {
   return (
@@ -14,12 +15,10 @@ function ProductList() {
         </p>
       </div>
       <div className="plList">
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
-        <Product/>
+        {products.map((item) => (
+          <Product key={item.id} img={item.img} link={item.link} />
+          
+        ))}
       </div>
     </div>
   );
