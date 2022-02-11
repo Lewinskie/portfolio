@@ -60,3 +60,26 @@
   color: #555;
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 480px) {
+  .a {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .aLeft {
+    width: 100%;
+  }
+  .aCard {
+    height: 30vh;
+  }
+  .aCard.bg {
+    display: none;
+  }
+  .aRight {
+    padding: 20px;
+  }
+  .award {
+    display: none;
+  }
+}
