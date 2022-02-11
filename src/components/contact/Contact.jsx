@@ -6,12 +6,16 @@ import Address from "../../img/address.png";
 import { useRef } from "react";
 import emailjs from "emailjs-com";
 import { useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
 
 const Contact = () => {
   const formRef = useRef();
   const [done, setDone] = useState(false);
   const [fail, setFail] = useState(false);
-  
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,7 +36,6 @@ const Contact = () => {
           setFail(true);
         }
       );
-    
   };
 
   return (
@@ -62,10 +65,30 @@ const Contact = () => {
             freelancing if the right project comes along me.
           </p>
           <form ref={formRef} onSubmit={handleSubmit}>
-            <input type="text" placeHolder="Name" name="user_name" />
-            <input type="text" placeHolder="Subject" name="user_subject" />
-            <input type="text" placeHolder="Email" name="user_email" />
-            <textarea name="message" placeholder="Message" rows="5"></textarea>
+            <input
+              style={{ backgroundColor: darkMode && "#333" }}
+              type="text"
+              placeHolder="Name"
+              name="user_name"
+            />
+            <input
+              style={{ backgroundColor: darkMode && "#333" }}
+              type="text"
+              placeHolder="Subject"
+              name="user_subject"
+            />
+            <input
+              style={{ backgroundColor: darkMode && "#333" }}
+              type="text"
+              placeHolder="Email"
+              name="user_email"
+            />
+            <textarea
+              style={{ backgroundColor: darkMode && "#333" }}
+              name="message"
+              placeholder="Message"
+              rows="5"
+            ></textarea>
             <button>Submit</button>
             {done && (
               <div className="cSuccess">
